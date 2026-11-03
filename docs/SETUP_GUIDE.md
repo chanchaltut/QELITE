@@ -63,6 +63,7 @@ In the Vercel project:
 
 1. **Settings → Build and Deployment → Root Directory** → `client` (Framework: Vite). Save.
 2. **Settings → Environment Variables** → add **`CONTENT_API_URL`** = `https://qelite-api.onrender.com` (Production + Preview).
+   - **Deploying the website before the API?** Set `CONTENT_API_URL` = `builtin` for now. The site then builds with its built-in content, and the build doesn't fail because the API is missing. Change it to the Render URL once step 3 is done; until then the Verify page, forms and admin panel won't work.
 3. **Settings → Git → Deploy Hooks** → name `admin-publish`, branch `main` → **Create** → copy the URL.
 4. Back in **Render → your service → Environment** → add **`VERCEL_DEPLOY_HOOK_URL`** = that URL → *Save changes* (Render restarts the API).
 5. **Vercel → Deployments** → on the latest deployment, click **⋯ → Redeploy**. Or push any commit.

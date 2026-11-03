@@ -1,0 +1,33 @@
+# Render Blueprint — creates the website API in one step.
+# Render dashboard → New → Blueprint → pick this repository → fill in the values marked "sync: false".
+services:
+  - type: web
+    name: qelite-api
+    runtime: node
+    # "free" sleeps after 15 minutes without traffic (first request then takes ~1 minute).
+    # Switch to "starter" for an always-on server, or keep it awake with an uptime monitor.
+    plan: free
+    region: singapore
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SITE_URL
+        value: https://www.qelite.com
+      - key: MONGODB_URI
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false
+      # Added later in the service's Environment tab (see docs/SETUP_GUIDE.md):
+      #   VERCEL_DEPLOY_HOOK_URL, RESEND_API_KEY, EMAIL_FROM

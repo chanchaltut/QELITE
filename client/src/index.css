@@ -1,0 +1,306 @@
+/* ═══════════════════════════════════════════════════════════
+   QELITE — Global styles
+   Palette: deep navy ink on white and cool porcelain, a "verified"
+   emerald for links and states, a mint seal accent for actions,
+   warm parchment for anything that represents a certificate.
+   Re-theme by editing the RGB channels in :root.
+═══════════════════════════════════════════════════════════ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-950: 6 14 26;        /* #060E1A */
+  --ink-900: 11 26 46;       /* #0B1A2E navy ink */
+  --ink-800: 36 52 74;       /* #24344A */
+  --ink-700: 74 88 108;      /* #4A586C */
+
+  --brand-50: 232 246 241;   /* #E8F6F1 */
+  --brand-100: 205 237 226;  /* #CDEDE2 */
+  --brand-200: 159 220 199;  /* #9FDCC7 */
+  --brand-500: 47 181 140;   /* #2FB58C focus */
+  --brand-600: 14 128 100;   /* #0E8064 verified emerald */
+  --brand-700: 10 107 84;    /* #0A6B54 */
+  --brand-800: 8 78 62;      /* #084E3E */
+  --brand-900: 4 38 30;      /* #04261E */
+
+  --seal: 157 229 200;       /* #9DE5C8 mint seal */
+  --seal-light: 225 246 238; /* #E1F6EE */
+  --seal-deep: 92 201 162;   /* #5CC9A2 */
+
+  --porcelain: 240 243 241;      /* #F0F3F1 textured section background */
+  --porcelain-deep: 222 229 226; /* #DEE5E2 */
+  --parchment: 247 242 231;      /* #F7F2E7 certificate paper */
+
+  --mist: 226 235 247;       /* #E2EBF7 */
+  --mint: 222 245 232;       /* #DEF5E8 */
+  --rose: 250 221 221;       /* #FADDDD */
+  --peach: 251 233 214;      /* #FBE9D6 */
+
+  --paper: 246 247 246;      /* #F6F7F6 */
+  --paper-2: 236 239 237;    /* #ECEFED */
+  --line: 216 222 222;       /* #D8DEDE */
+  --muted: 98 110 122;       /* #626E7A */
+  --body: 11 26 46;          /* #0B1A2E */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-[1rem] text-body antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'ss01' on, 'cv11' on;
+  }
+  h1, h2, h3, h4 {
+    @apply text-ink-900;
+  }
+  ::selection {
+    background: rgb(var(--seal) / 0.85);
+    color: rgb(var(--ink-900));
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand-500));
+    outline-offset: 3px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Grid items default to min-width:auto, which lets long words push columns wider than the viewport */
+  .grid > * {
+    min-width: 0;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Short label above section headings: a small rule, then the text */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-ink-800;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-px w-6 bg-current opacity-60;
+  }
+  .eyebrow-light {
+    @apply text-seal;
+  }
+
+  /* Small meta text: dates, categories, counts */
+  .label {
+    @apply text-xs font-medium text-muted;
+  }
+
+  .h-display {
+    @apply font-serif font-normal tracking-[-0.02em] text-ink-900;
+    font-variant-ligatures: common-ligatures;
+    text-wrap: balance;
+  }
+
+  /* Certificate numbers, standard codes */
+  .code {
+    @apply font-mono tracking-[-0.01em];
+  }
+
+  /* ── Buttons: pill, 1px outline, lifts onto a solid edge on hover ──
+     Use one variant class per button (btn-primary, btn-dark, …). */
+  :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-outline-light, .btn-whatsapp) {
+    --btn-bg: transparent;
+    --btn-fg: rgb(var(--ink-900));
+    --btn-stroke: rgb(var(--ink-900));
+    --btn-stroke-w: 1px;
+    --btn-depth: rgb(var(--ink-900));
+    @apply relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.9375rem] font-medium leading-5;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    box-shadow: 0 0 0 var(--btn-stroke-w) var(--btn-stroke);
+    transition:
+      transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      background-color 0.2s,
+      color 0.2s;
+  }
+  :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-outline-light, .btn-whatsapp):hover {
+    transform: translateY(-0.1875rem);
+    box-shadow:
+      0 0 0 var(--btn-stroke-w) var(--btn-stroke),
+      0 0.1875rem 0 0 var(--btn-depth);
+  }
+  :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-outline-light, .btn-whatsapp):active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 var(--btn-stroke-w) var(--btn-stroke);
+    transition-duration: 0.1s;
+  }
+  :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-outline-light, .btn-whatsapp):disabled {
+    @apply pointer-events-none opacity-60;
+  }
+
+  /* On dark sections buttons drop the outline and lift onto a light edge */
+  .on-dark :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-whatsapp) {
+    --btn-stroke-w: 0px;
+    --btn-depth: rgb(var(--seal-deep));
+  }
+
+  .btn-primary {
+    --btn-bg: rgb(var(--seal));
+  }
+  .btn-dark {
+    --btn-bg: rgb(var(--ink-900));
+    --btn-fg: #fff;
+    --btn-depth: rgb(var(--brand-600));
+  }
+  .btn-light {
+    --btn-bg: #fff;
+  }
+  .btn-whatsapp {
+    --btn-bg: theme('colors.whatsapp');
+    --btn-fg: #fff;
+  }
+  .btn-outline-light {
+    --btn-fg: #fff;
+    --btn-stroke: rgb(255 255 255 / 0.55);
+    --btn-depth: #fff;
+  }
+  .btn-sm {
+    @apply px-4 py-2 text-[0.8125rem];
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-white;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-1.5 text-[0.8125rem] font-medium text-ink-900 transition-colors hover:border-ink-900;
+  }
+  .chip-active {
+    @apply border-ink-900 bg-ink-900 text-white hover:border-ink-900;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-2xs font-semibold;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-ink-900/30 bg-white px-4 py-3 text-[0.9375rem] text-ink-900 outline-none transition placeholder:text-muted/80 hover:border-ink-900 focus:border-ink-900 focus:ring-2 focus:ring-brand-500;
+  }
+
+  /* Text link: underlined, highlighted in mint on hover */
+  .text-link,
+  .link-underline {
+    @apply font-medium text-ink-900 underline decoration-1 underline-offset-[3px];
+    transition: background-color 0.15s, box-shadow 0.15s;
+  }
+  .text-link:hover,
+  .link-underline:hover {
+    background-color: rgb(var(--seal) / 0.7);
+    box-shadow: 0 0 0 0.2rem rgb(var(--seal) / 0.7);
+  }
+  .on-dark .text-link {
+    @apply text-white;
+  }
+  .on-dark .text-link:hover {
+    @apply text-ink-900;
+  }
+
+  .media {
+    @apply overflow-hidden rounded-panel bg-paper-2;
+  }
+
+  /* Long-form body typography */
+  .prose-article {
+    @apply text-[1.0625rem] leading-[1.75] text-ink-800;
+  }
+  .prose-article p {
+    @apply mb-5;
+  }
+  .prose-article h2 {
+    @apply mb-3 mt-10 font-serif text-[1.875rem] font-normal leading-tight tracking-[-0.02em] text-ink-900;
+  }
+  .prose-article strong {
+    @apply font-semibold text-ink-900;
+  }
+}
+
+@layer utilities {
+  /* Porcelain paper: fine grain + soft light falloff (no image request) */
+  .bg-texture {
+    background-color: rgb(var(--porcelain));
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .2 0 0 0 0 .25 0 0 0 1.3 -.45'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse 80% 70% at 12% 0%, rgb(255 255 255 / 0.75), transparent 60%),
+      radial-gradient(ellipse 70% 80% at 100% 100%, rgb(var(--porcelain-deep) / 0.9), transparent 65%);
+    background-size: 240px 240px, 100% 100%, 100% 100%;
+  }
+
+  /* Dark navy with a faint grain */
+  .bg-ink-grain {
+    background-color: rgb(var(--ink-900));
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 -.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse 60% 70% at 85% 10%, rgb(var(--brand-600) / 0.28), transparent 60%),
+      radial-gradient(ellipse 60% 60% at 0% 100%, rgb(var(--ink-700) / 0.35), transparent 60%);
+    background-size: 240px 240px, 100% 100%, 100% 100%;
+  }
+
+  /* Fine ruled lines, like security paper */
+  .bg-ruled {
+    background-image: repeating-linear-gradient(0deg, rgb(var(--ink-900) / 0.05) 0 1px, transparent 1px 28px);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
+  }
+}
+
+/* ─── Placeholder highlighting (review mode) ─────────────── */
+.ph {
+  background: rgb(var(--seal-light));
+  color: rgb(var(--ink-900));
+  outline: 1px dashed rgb(var(--brand-600));
+  outline-offset: 1px;
+  border-radius: 4px;
+  padding: 0 0.25em;
+  font-style: normal;
+}
+.on-dark .ph {
+  background: rgb(var(--seal) / 0.15);
+  color: rgb(var(--seal));
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  :is(.btn, .btn-primary, .btn-dark, .btn-light, .btn-outline, .btn-outline-light, .btn-whatsapp) { transform: none !important; transition: none; }
+  .animate-marquee, .animate-rise, .animate-stamp, .animate-scan, .animate-spin-slow { animation: none !important; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+}

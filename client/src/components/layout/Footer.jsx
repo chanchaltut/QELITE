@@ -150,9 +150,7 @@ export default function Footer() {
 
       {/* Oversized wordmark */}
       <div aria-hidden="true" className="pointer-events-none select-none overflow-hidden">
-        <p className="mask-fade-b -mb-[0.22em] text-center font-sans text-[24vw] font-semibold leading-none tracking-[0.06em] text-white/[0.045] lg:text-[19rem]">
-          QELITE
-        </p>
+        <img src="/qeliteLogo.svg" alt="" className="mask-fade-b mx-auto -mb-[6%] w-[92%] max-w-[1200px] opacity-[0.05]" />
       </div>
     </footer>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HERO } from '../../data/content';
-import { LogoMark } from '../ui/Logo';
 import Guilloche from '../ui/Guilloche';
 import Ph, { ready } from '../ui/Ph';
 import VerifyForm from '../certificate/VerifyForm';
@@ -20,8 +19,7 @@ function SpecimenCertificate() {
         <Guilloche className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 text-brand-600/[0.09]" strokeWidth={0.6} />
 
         <div className="relative">
-          <LogoMark className="mx-auto h-11 w-11" />
-          <p className="mt-2 text-[0.8125rem] font-semibold tracking-[0.32em]">QELITE</p>
+          <img src="/qeliteLogoNavy.svg" alt="QELITE" width="138" height="36" className="mx-auto h-9 w-auto" />
           <p className="mt-4 font-serif text-[2rem] italic leading-none text-ink-900 sm:text-[2.375rem]">Certificate of Registration</p>
           <p className="mt-4 font-serif text-sm italic text-ink-800">This is to certify that</p>
           <p className="mt-1.5 text-[1.0625rem] font-semibold uppercase tracking-[0.06em]">Your Organisation</p>

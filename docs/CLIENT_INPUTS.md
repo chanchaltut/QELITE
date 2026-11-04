@@ -3,7 +3,7 @@
 Anything not yet provided is hidden on the live site until it is filled in. Once the site is live, all of it can be entered in the admin panel.
 
 ## 1. Brand & contact
-- Final **logo** (SVG preferred). The current mark is an interim design and can be replaced in *Site settings → Logo* without any code change.
+- ✅ Final **logo** and favicon are in place across the site, certificates and portfolio PDF.
 - ✅ Domain **qelite.com**, email **contact@qelite.com** (to be confirmed if they change)
 - **Legal name** of the certification body as it should appear on certificates (currently "QELITE Certification Services")
 - **Office address**, Google Maps link, office hours

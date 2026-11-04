@@ -35,9 +35,9 @@ Only needed for uploading images for the website (logo, signature, seals, photos
 2. **New → Web Service** → select this repository, with these settings (or use **New → Blueprint**, which reads them from `render.yaml`):
    | Setting | Value |
    |---|---|
-   | Root Directory | `server` |
-   | Build Command | `npm install` |
-   | Start Command | `npm start` |
+   | Root Directory | leave blank (the API needs the `shared` folder, and Render hides anything outside the root directory) |
+   | Build Command | `npm ci --prefix server` |
+   | Start Command | `npm start --prefix server` |
    | Health Check Path | `/api/health` |
 3. **Environment** — add:
    | Key | Value |

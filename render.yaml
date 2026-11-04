@@ -8,10 +8,15 @@ services:
     # Switch to "starter" for an always-on server, or keep it awake with an uptime monitor.
     plan: free
     region: singapore
-    rootDir: server
-    buildCommand: npm ci
-    startCommand: npm start
+    # No rootDir: the API imports ../shared, and Render hides files outside a service's root directory.
+    buildCommand: npm ci --prefix server
+    startCommand: npm start --prefix server
     healthCheckPath: /api/health
+    buildFilter:
+      paths:
+        - server/**
+        - shared/**
+        - render.yaml
     envVars:
       - key: NODE_ENV
         value: production

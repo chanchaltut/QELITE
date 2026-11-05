@@ -1,6 +1,6 @@
 # QELITE — Progress
 
-_Last updated: 4 November 2026 (night)_
+_Last updated: 5 November 2026_
 
 **Project:** QELITE (www.qelite.com, contact@qelite.com), a certification-body website with an online certificate register, modelled on mqacertification.com.
 **Client:** Mishra and Associates (same owner). **Agency:** Code Hyphen.
@@ -10,10 +10,13 @@ _Last updated: 4 November 2026 (night)_
 
 ## Where I left off
 
-The website and API code are **finished and tested locally**. Deployment is **half done**:
+The website and API code are **finished and tested locally**. The real logo, favicon, new certificate design and portfolio PDF are done and merged into `main`. Deployment is **half done**:
 
 | Part | Status |
 |---|---|
+| Logo, favicon, certificate redesign | Done and on `main`. Live once the next Vercel deploy succeeds. |
+| Render deploy fix (`render.yaml`) | Done and on `main`. |
+| Portfolio PDF | Done: `docs/QELITE-Certification-Portfolio.pdf`. _(Check whether it was sent to the client.)_ |
 | Website on Vercel | Builds were failing because the API doesn't exist yet. **Fix:** set `CONTENT_API_URL=builtin` in Vercel → Settings → Environment Variables, then Redeploy. _(Check whether this was done and whether the deploy succeeded.)_ |
 | API on Render | **Not deployed yet.** Next task: see "Tomorrow" below. |
 | Database (MongoDB Atlas) | **Not created yet.** |
@@ -23,6 +26,11 @@ The website and API code are **finished and tested locally**. Deployment is **ha
 ---
 
 ## Tomorrow: step by step
+
+### 0. Merge the branch into `main`
+- [x] Merged and pushed on 5 November. This should also start a Vercel deploy, which fails unless `CONTENT_API_URL` is set to `builtin` or a working API. The current site stays up if it does.
+
+_Steps 1–5 below may have been started on 5 November. Tick off whatever is already done._
 
 ### 1. MongoDB Atlas (database, free)
 - [ ] Create a free **M0** cluster on AWS, region **Singapore (ap-southeast-1)**, the same region as the API in `render.yaml`.
@@ -41,7 +49,7 @@ The website and API code are **finished and tested locally**. Deployment is **ha
 
 ### 3. Connect Vercel to the API
 - [ ] Vercel → Environment Variables → change `CONTENT_API_URL` from `builtin` to the Render URL.
-- [ ] **If the Render URL is different** from `qelite-api.onrender.com`, update it in `client/vercel.json` (the `/api/:path*` rewrite), then commit and push.
+- [ ] **If the Render URL is different** from `qelite-api.onrender.com`, update it in `client/vercel.json` (the `/api/:path*` rewrite) and in `PRODUCTION_API` in `client/scripts/fetch-snapshot.mjs`, then commit and push.
 - [ ] Vercel → Settings → Git → Deploy Hooks → create `admin-publish` (branch `main`) and copy the URL.
 - [ ] Render → Environment → add `VERCEL_DEPLOY_HOOK_URL` = that URL → Save.
 - [ ] Vercel → Redeploy.
@@ -60,6 +68,13 @@ The website and API code are **finished and tested locally**. Deployment is **ha
 - [ ] Create the client's own Owner login in Admin → Users, and give him `docs/ADMIN_GUIDE.md`.
 
 Full details: **`docs/SETUP_GUIDE.md`**.
+
+### 6. Portfolio PDF: before customers see it
+- [ ] Client confirms QELITE offers all 13 standards in the PDF.
+- [ ] `www.qelite.com` is live. Until then the QR codes in the PDF don't work.
+- [ ] Scan a QR code with a phone. This hasn't been tested yet.
+- [ ] Add the signatory name and signature, office address and accreditation details once the client sends them, then rebuild with `npm run portfolio` inside `client/`.
+- Keep the certificates marked SPECIMEN, and add no accreditation or ISO marks without real, licensed details.
 
 ---
 

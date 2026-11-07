@@ -1,6 +1,6 @@
 # QELITE — Website & Certificate Register
 
-The public website, admin panel and online certificate register for QELITE (www.qelite.com), a management system certification body. Built by Code Hyphen for Mishra and Associates.
+The public website, admin panel and online certificate register for QELITE (www.qelite.in), a management system certification body. Built by Code Hyphen for Mishra and Associates.
 
 ## What it does
 - **Website**: home, certification programmes (one page per standard), accreditation & policies, about, contact & quotes, FAQs and legal pages. All of it is editable from the admin panel.

@@ -1,6 +1,6 @@
 # Managing QELITE — quick guide
 
-Sign in at **https://www.qelite.com/admin**, or use **Team login** at the bottom of any page.
+Sign in at **https://www.qelite.in/admin**, or use **Team login** at the bottom of any page.
 
 ## Certificates (live immediately)
 

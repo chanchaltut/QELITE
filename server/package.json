@@ -2,7 +2,7 @@
   "name": "qelite-api",
   "private": true,
   "version": "1.0.0",
-  "description": "Website management and certificate register API for www.qelite.com",
+  "description": "Website management and certificate register API for www.qelite.in",
   "type": "module",
   "main": "src/index.js",
   "engines": {

@@ -61,7 +61,7 @@ function DateRow({ label, value }) {
 /**
  * @param cert      certificate record (number, title, organisation, address, standard, standardTitle, scope, dates…)
  * @param template  CERTIFICATE content (issuer, signatory, seals, notes…)
- * @param siteUrl   https://www.qelite.com — used for the QR code and verification line
+ * @param siteUrl   https://www.qelite.in — used for the QR code and verification line
  * @param watermark optional diagonal overlay, e.g. "SPECIMEN" or "SUSPENDED"
  * @param qrHref    optional QR target, instead of this certificate's verification page
  * @param notice    optional line in the small print, e.g. for a specimen

@@ -49,7 +49,7 @@ Only needed for uploading images for the website (logo, signature, seals, photos
    | `CLOUDINARY_URL` | from step 2 |
    | `NODE_ENV` | `production` |
    | `NODE_VERSION` | `22` |
-   | `SITE_URL` | `https://www.qelite.com` |
+   | `SITE_URL` | `https://www.qelite.in` |
 4. Deploy. The first deploy takes 2–4 minutes.
 5. Open **`https://qelite-api.onrender.com/api/health`**. It should show `{"ok":true,"db":"connected"}`.
    - If the service URL is different (shown at the top of the service page), use that URL everywhere below. Also put it in **`client/vercel.json`** (first line under `rewrites`) and commit.
@@ -67,15 +67,15 @@ In the Vercel project:
 3. **Settings → Git → Deploy Hooks** → name `admin-publish`, branch `main` → **Create** → copy the URL.
 4. Back in **Render → your service → Environment** → add **`VERCEL_DEPLOY_HOOK_URL`** = that URL → *Save changes* (Render restarts the API).
 5. **Vercel → Deployments** → on the latest deployment, click **⋯ → Redeploy**. Or push any commit.
-6. **Settings → Domains** → keep `www.qelite.com` as the primary domain, with `qelite.com` redirecting to it. If the website address ever changes, update it in the same three places: Vercel domains, admin → *Site settings → Website address*, and `SITE_URL` on Render.
+6. **Settings → Domains** → keep `www.qelite.in` as the primary domain, with `qelite.in` redirecting to it. If the website address ever changes, update it in the same three places: Vercel domains, admin → *Site settings → Website address*, and `SITE_URL` on Render.
 
 ## 5. Test it (2 minutes)
 
-1. Open **https://www.qelite.com/admin** and sign in.
+1. Open **https://www.qelite.in/admin** and sign in.
 2. **Site settings** → turn on the *Announcement bar*, type a message → **Save changes** → **Publish** (top right).
 3. Wait for *"Your changes are live on the website"* (about 1–2 minutes). Check the site, then turn the bar off and publish again.
 4. Submit the **Contact** form on the website. It appears in **Inbox**.
-5. **Certificate register:** add a test certificate (e.g. number `TEST/0001`), open `https://www.qelite.com/verify?cert=TEST/0001`, and check that it shows as valid. Then delete it (owner account) before entering the real certificates.
+5. **Certificate register:** add a test certificate (e.g. number `TEST/0001`), open `https://www.qelite.in/verify?cert=TEST/0001`, and check that it shows as valid. Then delete it (owner account) before entering the real certificates.
 
 ## 6. Keep the API awake (free) — recommended
 
@@ -92,8 +92,8 @@ Everything is always saved in the admin **Inbox**. Email alerts are an extra.
 3. In the admin panel → **Form settings** → put that same email address → Save.
 
 Without a verified domain, Resend only delivers to the email you signed up with. To send alerts to other addresses as well:
-1. In Resend, go to **Domains → Add** `qelite.com` and add the DNS records it shows.
-2. On Render, set `EMAIL_FROM` = `QELITE <website@qelite.com>`.
+1. In Resend, go to **Domains → Add** `qelite.in` and add the DNS records it shows.
+2. On Render, set `EMAIL_FROM` = `QELITE <website@qelite.in>`.
 
 ---
 

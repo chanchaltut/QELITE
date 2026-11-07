@@ -52,4 +52,4 @@ Disallow: /
 User-agent: Amazonbot
 Disallow: /
 
-Sitemap: https://www.qelite.com/sitemap.xml
+Sitemap: https://www.qelite.in/sitemap.xml

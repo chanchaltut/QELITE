@@ -2,7 +2,7 @@
   "name": "qelite",
   "private": true,
   "type": "module",
-  "description": "Website (client/) and website-management API (server/) for www.qelite.com",
+  "description": "Website (client/) and website-management API (server/) for www.qelite.in",
   "scripts": {
     "install:all": "npm install --prefix client && npm install --prefix server",
     "dev": "npm run dev --prefix client",

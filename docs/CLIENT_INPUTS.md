@@ -4,7 +4,7 @@ Anything not yet provided is hidden on the live site until it is filled in. Once
 
 ## 1. Brand & contact
 - ✅ Final **logo** and favicon are in place across the site, certificates and portfolio PDF.
-- ✅ Domain **qelite.com**, email **contact@qelite.com** (to be confirmed if they change)
+- Domain **qelite.in** and email **contact@qelite.in** are chosen, but the domain is not purchased yet
 - **Legal name** of the certification body as it should appear on certificates (currently "QELITE Certification Services")
 - **Office address**, Google Maps link, office hours
 - **Phone** and **WhatsApp** numbers (the call/WhatsApp buttons appear once these are entered)

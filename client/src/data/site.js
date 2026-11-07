@@ -20,8 +20,8 @@ export const SITE_DEFAULT = {
   description:
     'QELITE audits and certifies management systems to ISO and industry standards, including quality, environment, health and safety, food safety, information security and medical devices. Every certificate it issues can be checked online.',
 
-  url: 'https://www.qelite.com',
-  domain: 'qelite.com',
+  url: 'https://www.qelite.in',
+  domain: 'qelite.in',
 
   phone: {
     display: '[Phone number]',
@@ -29,7 +29,7 @@ export const SITE_DEFAULT = {
   },
   whatsapp: '',
   whatsappDisplay: '[WhatsApp number]',
-  email: 'contact@qelite.com',
+  email: 'contact@qelite.in',
 
   address: {
     street: '[Office address]',

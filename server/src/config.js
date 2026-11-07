@@ -26,7 +26,7 @@ export const config = {
   port: Number(env.PORT) || 4000,
   mongoUri: env.MONGODB_URI,
   jwtSecret: env.JWT_SECRET,
-  siteUrl: (env.SITE_URL || 'https://www.qelite.com').replace(/\/$/, ''),
+  siteUrl: (env.SITE_URL || 'https://www.qelite.in').replace(/\/$/, ''),
   // Extra origins allowed to post forms directly (only needed when VITE_API_URL is used)
   allowedOrigins: list(env.ALLOWED_ORIGINS),
   admin: {

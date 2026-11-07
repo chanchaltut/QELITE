@@ -15,7 +15,7 @@ import { validateSnapshot } from '../../shared/schema.js';
 
 // On Vercel the production API is the default, so a missing CONTENT_API_URL can
 // never quietly replace the published content with the built-in defaults.
-const PRODUCTION_API = 'https://qelite-api.onrender.com';
+const PRODUCTION_API = 'https://qelite.onrender.com';
 const SETTING = (process.env.CONTENT_API_URL || '').trim();
 const BUILTIN = /^(builtin|built-in|off|none)$/i.test(SETTING);
 const API = BUILTIN ? '' : (SETTING || (process.env.VERCEL ? PRODUCTION_API : '')).replace(/\/$/, '');

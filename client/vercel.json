@@ -4,7 +4,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://qelite-api.onrender.com/api/:path*"
+      "destination": "https://qelite.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
